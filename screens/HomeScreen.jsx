@@ -255,7 +255,6 @@ const HomeScreen = () => {
 
     fetchUser();
   }, []);
-  console.log("address", addresses);
   return (
     <>
       <SafeAreaView
@@ -356,7 +355,7 @@ const HomeScreen = () => {
 
           <SliderBox
             images={images}
-            autoPlay
+            autoPlay={true}
             circleLoop
             dotColor={"#13274F"}
             inactiveDotColor="#90A4AE"
@@ -419,6 +418,7 @@ const HomeScreen = () => {
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {offers.map((item, index) => (
               <Pressable
+              key={index}
                 onPress={() =>
                   navigation.navigate("Info", {
                     id: item.id,
@@ -551,6 +551,7 @@ const HomeScreen = () => {
             {/* already added addresses */}
             {addresses?.map((item, index) => (
               <Pressable
+              key={index}
               onPress={() => setSelectedAdress(item)}
                 style={{
                   width: 140,

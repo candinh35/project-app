@@ -41,8 +41,9 @@ const LoginScreen = () => {
     };
     loginService.login(user)
       .then((response) => {
-        if(response.data.token){
-          const token = response.data.token;
+        console.log(response.data);
+        if(response.data.access_token){
+          const token = response.data.access_token;
           AsyncStorage.setItem("authToken", token);
           navigation.replace("Main");
         }else{
