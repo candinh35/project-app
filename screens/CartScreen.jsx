@@ -113,6 +113,7 @@ const CartScreen = () => {
             key={index}
           >
             <Pressable
+            key={index}
               style={{
                 marginVertical: 10,
                 flexDirection: "row",

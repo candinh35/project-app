@@ -223,7 +223,7 @@ const HomeScreen = () => {
     fetchData();
   }, []);
   const onGenderOpen = useCallback(() => {
-    setCompanyOpen(false);
+    // setCompanyOpen(false);
   }, []);
 
   const cart = useSelector((state) => state.cart.cart);

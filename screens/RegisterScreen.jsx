@@ -15,6 +15,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
+import loginService from "./service/loginService";
 
 const RegisterScreen = () => {
   const [email, setEmail] = useState("");
@@ -29,8 +30,7 @@ const RegisterScreen = () => {
     };
 
     // send a POST  request to the backend API to register the user
-    axios
-      .post("http://localhost:8000/register", user)
+    loginService.register(user)
       .then((response) => {
         console.log(response);
         Alert.alert(

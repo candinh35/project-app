@@ -6,6 +6,12 @@ const loginService = {
         .then((response) => {
             return response;
         })
+    },
+    async register(data) {
+        return await apiClient.post('auth/register', data)
+        .then((response) => {
+            return response;
+        })
     }
 }
 
