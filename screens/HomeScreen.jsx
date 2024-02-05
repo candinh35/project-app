@@ -25,6 +25,7 @@ import { BottomModal, SlideAnimation, ModalContent } from "react-native-modals";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { UserType } from "../UserContext";
 import jwt_decode from "jwt-decode";
+import homeService from "./service/homeService";
 
 const HomeScreen = () => {
   const list = [
@@ -213,8 +214,15 @@ const HomeScreen = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://fakestoreapi.com/products");
-        setProducts(response.data);
+        homeService.getPaged({
+          size: 20
+        })
+        .then((response) => {
+          if(response.data.code == 0){
+            const products = response.data?.products;
+            setProducts(products?.data);
+          } 
+        })
       } catch (error) {
         console.log("error message", error);
       }

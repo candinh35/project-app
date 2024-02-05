@@ -32,7 +32,6 @@ const RegisterScreen = () => {
     // send a POST  request to the backend API to register the user
     loginService.register(user)
       .then((response) => {
-        console.log(response);
         Alert.alert(
           "Registration successful",
           "You have been registered Successfully"

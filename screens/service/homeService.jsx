@@ -2,7 +2,8 @@ const { default: apiClient } = require("./api.service")
 
 const homeService = {
     async getPaged(data) {
-        return await apiClient.post('home/list', data)
+        console.log(data);
+        return await apiClient.get('product/list',{ params: data })
         .then((response) => {
             return response;
         })
